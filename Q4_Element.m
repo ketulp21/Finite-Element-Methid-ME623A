@@ -55,7 +55,7 @@ Kg(dest(ielem,idof),dest(ielem,jdof)) = Kg(dest(ielem,idof),dest(ielem,jdof)) + 
 end
 end
 end % element loop ends
-Kg
+
 % insert boundary conditions
 fixed=[1 2 4 6 7 8];
 Fg = Fg - (delta)*Kg(:,6)-(delta)*Kg(:,8);
