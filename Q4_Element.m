@@ -42,19 +42,18 @@ L=inv(J);
 B=[L(1,1)*N1r+L(1,2)*N1s 0 L(1,1)*N2r+L(1,2)*N2s 0 L(1,1)*N3r+L(1,2)*N3s 0 L(1,1)*N4r+L(1,2)*N4s 0;
     0 L(2,1)*N1r+L(2,2)*N1s 0 L(2,1)*N2r+L(2,2)*N2s 0 L(2,1)*N3r+L(2,2)*N3s 0 L(2,1)*N4r+L(2,2)*N4s;
     L(2,1)*N1r+L(2,2)*N1s L(1,1)*N1r+L(1,2)*N1s L(2,1)*N2r+L(2,2)*N2s  L(1,1)*N2r+L(1,2)*N2s L(2,1)*N3r+L(2,2)*N3s L(1,1)*N3r+L(1,2)*N3s L(2,1)*N4r+L(2,2)*N4s L(1,1)*N4r+L(1,2)*N4s ];
-
-
 D = (E/(1-nu*nu))*[1 nu 0 ; nu 1 0 ;0 0 (1-nu)/2] ;  %Elasticity Matrix
-
 Ke=B'*D*B*det(J)*weights(lint)+Ke;
-end  % gauss loop ends
+end  
+% gauss loop ends
 % assemble
 for idof=1:8
 for jdof=1:8
 Kg(dest(ielem,idof),dest(ielem,jdof)) = Kg(dest(ielem,idof),dest(ielem,jdof)) + Ke(idof,jdof);
 end
 end
-end % element loop ends
+end 
+% element loop ends
 
 % insert boundary conditions
 fixed=[1 2 4 6 7 8];
